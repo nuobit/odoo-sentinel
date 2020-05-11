@@ -63,7 +63,8 @@ class Sentinel(object):
         """
         if options.profile in odoorpc.ODOO.list(rc_file=options.config_file):
             # Try to autodetect an OdooRPC configuration
-            self.connection = odoorpc.ODOO.load(options.profile)
+            self.connection = odoorpc.ODOO.load(options.profile,
+                                                rc_file=options.config_file)
         else:
             raise Exception(
                 'Profile "{options.profile}" not found in file '
